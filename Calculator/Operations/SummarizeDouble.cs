@@ -4,7 +4,8 @@
     {
         public double Calculate(double first, double second)
         {
-            throw new System.NotImplementedException();
+            double result = first + second;
+            return result;
         }
     }
 }
