@@ -23,6 +23,36 @@ namespace Calculator.Test.Operations
             Assert.That(result, Is.EqualTo(correctResult));
         }
 
+
+        [TestCase(1d, double.PositiveInfinity)]
+        [TestCase(double.NegativeInfinity, 1d)]
+        public void Calculate_TryPassInfinity_OutOfRangeRaised(double firstNumber, double secondNumber)
+        {
+            //arrange 
+            var summarizer = new SummarizeDouble();
+
+            //act
+            TestDelegate result = () => summarizer.Calculate(firstNumber, secondNumber);
+
+            //assert
+            Assert.Throws<ArgumentOutOfRangeException>(result);
+        }
+
+
+        [TestCase(1d, double.NaN)]
+        [TestCase(double.NaN, 1d)]
+        public void Calculate_TryNan_ArgumentExceptionRaised(double firstNumber, double secondNumber)
+        {
+            //arrange 
+            var summarizer = new SummarizeDouble();
+
+            //act
+            TestDelegate result = () => summarizer.Calculate(firstNumber, secondNumber);
+
+            //assert
+            Assert.Throws<ArgumentException>(result);
+        }
+
         [TestCase(-1e308, -1e308)]
         [TestCase(1e308, 1e308)]
         public void Calculate_SumTwoBigAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)

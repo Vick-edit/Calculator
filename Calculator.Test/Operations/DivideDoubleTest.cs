@@ -24,8 +24,38 @@ namespace Calculator.Test.Operations
         }
 
 
-        [TestCase(-1e300d, 1e-200)]
-        [TestCase(-1e300d, -1e-200)]
+        [TestCase(1d, double.PositiveInfinity)]
+        [TestCase(double.NegativeInfinity, 1d)]
+        public void Calculate_TryPassInfinity_OutOfRangeRaised(double firstNumber, double secondNumber)
+        {
+            //arrange 
+            var divider = new DivideDouble();
+
+            //act
+            TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);
+
+            //assert
+            Assert.Throws<ArgumentOutOfRangeException>(result);
+        }
+
+
+        [TestCase(1d, double.NaN)]
+        [TestCase(double.NaN, 1d)]
+        public void Calculate_TryNan_ArgumentExceptionRaised(double firstNumber, double secondNumber)
+        {
+            //arrange 
+            var divider = new DivideDouble();
+
+            //act
+            TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);
+
+            //assert
+            Assert.Throws<ArgumentException>(result);
+        }
+
+
+        [TestCase(-1e300, 1e-200)]
+        [TestCase(-1e300, -1e-200)]
         public void Calculate_DivideBySmallAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
             //arrange
