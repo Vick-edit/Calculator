@@ -9,7 +9,7 @@ namespace Calculator.Operations
             var result = first/second;
 
             if (IsWasDivideByZero(result))
-                throw new DivideByZeroException();
+                throw new DivideByZeroException("Деление на ноль");
 
             return result;
         }

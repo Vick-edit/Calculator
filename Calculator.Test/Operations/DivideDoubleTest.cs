@@ -23,14 +23,29 @@ namespace Calculator.Test.Operations
             Assert.That(result, Is.EqualTo(correctResult));
         }
 
-        [TestCase(149.845654, -0)]
-        [TestCase(0.86, 0.0)]
-        [TestCase(0, 0)]
-        public void Calculate_DivideByZero_DivideByZeroExceptionReturned(double firstNumber, double secondNumber)
+
+        [TestCase(-10000000000000000000000000000d, -0.00000000000000000000000001d)]
+        [TestCase(1000000000000000000000000000d, 0.00000000000000000000000001d)]
+        public void Calculate_DivideBySmallAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
             //arrange
             var divider = new DivideDouble();
 
+            //act
+            TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);
+
+            //assert
+            Assert.Throws<OverflowException>(result);
+        }
+
+
+        [TestCase(149.845654, -0)]
+        [TestCase(0.86, 0.0)]
+        [TestCase(0, 0)]
+        public void Calculate_DivideByZero_DivideByZeroExceptionRaised(double firstNumber, double secondNumber)
+        {
+            //arrange
+            var divider = new DivideDouble();
 
             //act
             TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);

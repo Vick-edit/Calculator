@@ -1,4 +1,5 @@
-﻿using Calculator.Operations;
+﻿using System;
+using Calculator.Operations;
 using NUnit.Framework;
 
 namespace Calculator.Test.Operations
@@ -20,6 +21,20 @@ namespace Calculator.Test.Operations
 
             //assert
             Assert.That(result, Is.EqualTo(correctResult));
+        }
+
+        [TestCase(-1000000000000000000000000000d, -100000000000000000000000000d)]
+        [TestCase(1000000000000000000000000000d, 100000000000000000000000000d)]
+        public void Calculate_SumTwoBigAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
+        {
+            //arrange
+            var summarizer = new SummarizeDouble();
+
+            //act
+            TestDelegate result = () => summarizer.Calculate(firstNumber, secondNumber);
+
+            //assert
+            Assert.Throws<OverflowException>(result);
         }
     }
 }
