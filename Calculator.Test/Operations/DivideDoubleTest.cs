@@ -7,17 +7,24 @@ namespace Calculator.Test.Operations
     [TestFixture]
     public class DivideDoubleTest
     {
+        private readonly DivideDouble _divider;
+
+        public DivideDoubleTest()
+        {
+            _divider = new DivideDouble();
+        }
+
+
         [TestCase(-94.86, -147.45)]
         [TestCase(-94.86, 147.45)]
         [TestCase(94.86, 147.45)]
         public void Calculate_DivideFirsBySecont_CorrectReturned(double firstNumber, double secondNumber)
         {
             //arrange
-            var divider = new DivideDouble();
             var correctResult = firstNumber / secondNumber;
 
             //act
-            var result = divider.Calculate(firstNumber, secondNumber);
+            var result = _divider.Calculate(firstNumber, secondNumber);
 
             //assert
             Assert.That(result, Is.EqualTo(correctResult));
@@ -28,14 +35,7 @@ namespace Calculator.Test.Operations
         [TestCase(double.NegativeInfinity, 1d)]
         public void Calculate_TryPassInfinity_OutOfRangeRaised(double firstNumber, double secondNumber)
         {
-            //arrange 
-            var divider = new DivideDouble();
-
-            //act
-            TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);
-
-            //assert
-            Assert.Throws<ArgumentOutOfRangeException>(result);
+            Calculate_ActAssertForException<ArgumentOutOfRangeException>(firstNumber, secondNumber);
         }
 
 
@@ -43,14 +43,7 @@ namespace Calculator.Test.Operations
         [TestCase(double.NaN, 1d)]
         public void Calculate_TryNan_ArgumentExceptionRaised(double firstNumber, double secondNumber)
         {
-            //arrange 
-            var divider = new DivideDouble();
-
-            //act
-            TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);
-
-            //assert
-            Assert.Throws<ArgumentException>(result);
+            Calculate_ActAssertForException<ArgumentException>(firstNumber, secondNumber);
         }
 
 
@@ -58,30 +51,26 @@ namespace Calculator.Test.Operations
         [TestCase(-1e300, -1e-200)]
         public void Calculate_DivideBySmallAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
-            //arrange
-            var divider = new DivideDouble();
-
-            //act
-            TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);
-
-            //assert
-            Assert.Throws<OverflowException>(result);
+            Calculate_ActAssertForException<OverflowException>(firstNumber, secondNumber);
         }
 
 
-        [TestCase(149.845654, -0)]
-        [TestCase(0.86, 0.0)]
         [TestCase(0, 0)]
+        [TestCase(0.86, 0.0)]
+        [TestCase(149.845654, -0)]
         public void Calculate_DivideByZero_DivideByZeroExceptionRaised(double firstNumber, double secondNumber)
         {
-            //arrange
-            var divider = new DivideDouble();
+            Calculate_ActAssertForException<DivideByZeroException>(firstNumber, secondNumber);
+        }
 
+
+        private void Calculate_ActAssertForException<T>(double firstNumber, double secondNumber) where T : Exception
+        {
             //act
-            TestDelegate result = () => divider.Calculate(firstNumber, secondNumber);
+            TestDelegate result = () => _divider.Calculate(firstNumber, secondNumber);
 
             //assert
-            Assert.Throws<DivideByZeroException>(result);
+            Assert.Throws<T>(result);
         }
     }
 }

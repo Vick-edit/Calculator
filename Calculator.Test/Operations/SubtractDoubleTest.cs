@@ -7,17 +7,24 @@ namespace Calculator.Test.Operations
     [TestFixture]
     public class SubtractDoubleTest
     {
+        private readonly SubtractDouble _subtractor;
+
+        public SubtractDoubleTest()
+        {
+            _subtractor = new SubtractDouble();
+        }
+
+
         [TestCase(-94.86, -147.45)]
         [TestCase(-94.86, 147.45)]
         [TestCase(94.86, 147.45)]
         public void Calculate_SubtractFirstFromSecond_CorrectReturned(double firstNumber, double secondNumber)
         {
             //arrange
-            var subtractor = new SubtractDouble();
             var correctResult = firstNumber - secondNumber;
 
             //act
-            var result = subtractor.Calculate(firstNumber, secondNumber);
+            var result = _subtractor.Calculate(firstNumber, secondNumber);
 
             //assert
             Assert.That(result, Is.EqualTo(correctResult));
@@ -28,14 +35,7 @@ namespace Calculator.Test.Operations
         [TestCase(double.NegativeInfinity, 1d)]
         public void Calculate_TryPassInfinity_OutOfRangeRaised(double firstNumber, double secondNumber)
         {
-            //arrange 
-            var subtractor = new SubtractDouble();
-
-            //act
-            TestDelegate result = () => subtractor.Calculate(firstNumber, secondNumber);
-
-            //assert
-            Assert.Throws<ArgumentOutOfRangeException>(result);
+            Calculate_ActAssertForException<ArgumentOutOfRangeException>(firstNumber, secondNumber);
         }
 
 
@@ -43,28 +43,24 @@ namespace Calculator.Test.Operations
         [TestCase(double.NaN, 1d)]
         public void Calculate_TryNan_ArgumentExceptionRaised(double firstNumber, double secondNumber)
         {
-            //arrange 
-            var subtractor = new SubtractDouble();
-
-            //act
-            TestDelegate result = () => subtractor.Calculate(firstNumber, secondNumber);
-
-            //assert
-            Assert.Throws<ArgumentException>(result);
+            Calculate_ActAssertForException<ArgumentException>(firstNumber, secondNumber);
         }
 
         [TestCase(1e308, -1e308)]
         [TestCase(-1e308, 1e308)]
         public void Calculate_SubtractBigAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
-            //arrange
-            var subtractor = new SubtractDouble();
+            Calculate_ActAssertForException<OverflowException>(firstNumber, secondNumber);
+        }
 
+
+        private void Calculate_ActAssertForException<T>(double firstNumber, double secondNumber) where T : Exception
+        {
             //act
-            TestDelegate result = () => subtractor.Calculate(firstNumber, secondNumber);
+            TestDelegate result = () => _subtractor.Calculate(firstNumber, secondNumber);
 
             //assert
-            Assert.Throws<OverflowException>(result);
+            Assert.Throws<T>(result);
         }
     }
 }

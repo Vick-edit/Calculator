@@ -7,17 +7,24 @@ namespace Calculator.Test.Operations
     [TestFixture]
     public class MultiplyDoubleTest
     {
+        private readonly MultiplyDouble _multiplier;
+
+        public MultiplyDoubleTest()
+        {
+            _multiplier = new MultiplyDouble();
+        }
+
+
         [TestCase(-94.86, -147.45)]
         [TestCase(-94.86, 147.45)]
         [TestCase(94.86, 147.45)]
         public void Calculate_MultiplyTwoNumber_CorrectReturned(double firstNumber, double secondNumber)
         {
             //arrange
-            var multiplier = new MultiplyDouble();
             var correctResult = firstNumber * secondNumber;
 
             //act
-            var result = multiplier.Calculate(firstNumber, secondNumber);
+            var result = _multiplier.Calculate(firstNumber, secondNumber);
 
             //assert
             Assert.That(result, Is.EqualTo(correctResult));
@@ -28,14 +35,7 @@ namespace Calculator.Test.Operations
         [TestCase(double.NegativeInfinity, 1d)]
         public void Calculate_TryPassInfinity_OutOfRangeRaised(double firstNumber, double secondNumber)
         {
-            //arrange 
-            var multiplier = new MultiplyDouble();
-
-            //act
-            TestDelegate result = () => multiplier.Calculate(firstNumber, secondNumber);
-
-            //assert
-            Assert.Throws<ArgumentOutOfRangeException>(result);
+            Calculate_ActAssertForException<ArgumentOutOfRangeException>(firstNumber, secondNumber);
         }
 
 
@@ -43,14 +43,7 @@ namespace Calculator.Test.Operations
         [TestCase(double.NaN, 1d)]
         public void Calculate_TryNan_ArgumentExceptionRaised(double firstNumber, double secondNumber)
         {
-            //arrange 
-            var multiplier = new MultiplyDouble();
-
-            //act
-            TestDelegate result = () => multiplier.Calculate(firstNumber, secondNumber);
-
-            //assert
-            Assert.Throws<ArgumentException>(result);
+            Calculate_ActAssertForException<ArgumentException>(firstNumber, secondNumber);
         }
 
 
@@ -58,14 +51,17 @@ namespace Calculator.Test.Operations
         [TestCase(1e200, 1e200)]
         public void Calculate_MultiplyTwoBigAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
-            //arrange
-            var multiplier = new MultiplyDouble();
+            Calculate_ActAssertForException<OverflowException>(firstNumber, secondNumber);
+        }
 
+
+        private void Calculate_ActAssertForException<T>(double firstNumber, double secondNumber) where T : Exception
+        {
             //act
-            TestDelegate result = () => multiplier.Calculate(firstNumber, secondNumber);
+            TestDelegate result = () => _multiplier.Calculate(firstNumber, secondNumber);
 
             //assert
-            Assert.Throws<OverflowException>(result);
+            Assert.Throws<T>(result);
         }
     }
 }
