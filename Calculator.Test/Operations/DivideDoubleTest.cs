@@ -24,8 +24,8 @@ namespace Calculator.Test.Operations
         }
 
 
-        [TestCase(-10000000000000000000000000000d, -0.00000000000000000000000001d)]
-        [TestCase(1000000000000000000000000000d, 0.00000000000000000000000001d)]
+        [TestCase(-1e300d, 1e-200)]
+        [TestCase(-1e300d, -1e-200)]
         public void Calculate_DivideBySmallAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
             //arrange

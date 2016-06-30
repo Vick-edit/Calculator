@@ -24,8 +24,8 @@ namespace Calculator.Test.Operations
         }
 
 
-        [TestCase(-1000000000000000000000000000d, -100000000000000000000000000d)]
-        [TestCase(1000000000000000000000000000d, 100000000000000000000000000d)]
+        [TestCase(-1e200, 1e200)]
+        [TestCase(1e200, 1e200)]
         public void Calculate_MultiplyTwoBigAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
             //arrange

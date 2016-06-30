@@ -23,8 +23,8 @@ namespace Calculator.Test.Operations
             Assert.That(result, Is.EqualTo(correctResult));
         }
 
-        [TestCase(-1000000000000000000000000000d, -100000000000000000000000000d)]
-        [TestCase(1000000000000000000000000000d, 100000000000000000000000000d)]
+        [TestCase(-1e308, -1e308)]
+        [TestCase(1e308, 1e308)]
         public void Calculate_SumTwoBigAbsoluteValue_OverflowExceptionRaised(double firstNumber, double secondNumber)
         {
             //arrange
