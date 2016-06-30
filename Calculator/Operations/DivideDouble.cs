@@ -6,7 +6,17 @@ namespace Calculator.Operations
     {
         public double Calculate(double first, double second)
         {
-            throw new NotImplementedException();
+            var result = first/second;
+
+            if (IsWasDivideByZero(result))
+                throw new DivideByZeroException();
+
+            return result;
+        }
+
+        private bool IsWasDivideByZero(double result)
+        {
+            return double.IsInfinity(result) || double.IsNaN(result);
         }
     }
 }
