@@ -4,19 +4,19 @@ using NUnit.Framework;
 namespace Calculator.Test.Operations
 {
     [TestFixture]
-    public class SummarizeDoubleTest
+    public class MultiplyDoubleTest
     {
         [TestCase(-94.86, -147.45)]
         [TestCase(-94.86, 147.45)]
         [TestCase(94.86, 147.45)]
-        public void Calculate_SumTwoNumber_CorrectReturned(double firstNumber, double secondNumber)
+        public void Calculate_MultiplyTwoNumber_CorrectReturned(double firstNumber, double secondNumber)
         {
             //arrange
-            var summarizer = new SummarizeDouble();
-            var correctResult = firstNumber + secondNumber;
+            var multiplier = new MultiplyDouble();
+            var correctResult = firstNumber * secondNumber;
 
             //act
-            var result = summarizer.Calculate(firstNumber, secondNumber);
+            var result = multiplier.Calculate(firstNumber, secondNumber);
 
             //assert
             Assert.That(result, Is.EqualTo(correctResult));

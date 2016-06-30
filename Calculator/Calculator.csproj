@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Operations\IBinaryOperation.cs" />
+    <Compile Include="Operations\DivideDouble.cs" />
+    <Compile Include="Operations\Interfaces\IBinaryOperation.cs" />
+    <Compile Include="Operations\MultiplyDouble.cs" />
+    <Compile Include="Operations\SubtractDouble.cs" />
     <Compile Include="Operations\SummarizeDouble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

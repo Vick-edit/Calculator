@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operations\DivideDoubleTest.cs" />
+    <Compile Include="Operations\MultiplyDoubleTest.cs" />
+    <Compile Include="Operations\SubtractDoubleTest.cs" />
     <Compile Include="Operations\SummarizeDoubleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
