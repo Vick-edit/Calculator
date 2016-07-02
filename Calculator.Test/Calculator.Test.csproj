@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MathCore\BinaryPartsOfMathTest.cs" />
     <Compile Include="Operations\DivideDoubleTest.cs" />
     <Compile Include="Operations\MultiplyDoubleTest.cs" />
     <Compile Include="Operations\SubtractDoubleTest.cs" />

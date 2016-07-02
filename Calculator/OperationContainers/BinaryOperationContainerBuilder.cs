@@ -4,9 +4,9 @@ namespace Calculator.OperationContainers
 {
     public class BinaryOperationContainerBuilder<T> : IBinaryOperationContainerBuilder<T> where T : struct 
     {
-        public IBinaryOperationContainer<T> BuildContainer(string[] symbols, IBinaryOperation<T> operation)
+        public IBinaryOperationContainer<T> BuildContainer(string symbol, IBinaryOperation<T> operation)
         {
-            return new BinaryOperationContainer<T>(symbols, operation);
+            return new BinaryOperationContainer<T>(symbol, operation);
         }
     }
 }

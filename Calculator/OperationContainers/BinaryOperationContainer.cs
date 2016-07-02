@@ -4,12 +4,12 @@ namespace Calculator.OperationContainers
 {
     public class BinaryOperationContainer<T> : IBinaryOperationContainer<T> where T : struct 
     {
-        public string[] Symbols { get; private set; }
+        public string Symbol { get; private set; }
         public IBinaryOperation<T> Operation { get; private set; }
 
-        public BinaryOperationContainer(string[] symbols, IBinaryOperation<T> operation)
+        public BinaryOperationContainer(string symbol, IBinaryOperation<T> operation)
         {
-            Symbols = symbols;
+            Symbol = symbol;
             Operation = operation;
         }
     }
