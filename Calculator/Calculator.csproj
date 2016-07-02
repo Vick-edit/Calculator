@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="OperationContainers\IBinaryOperationContainer.cs" />
     <Compile Include="OperationContainers\BinaryOperationContainer.cs" />
+    <Compile Include="Operations\BaseBinaryOperationsFactoryDouble.cs" />
     <Compile Include="Operations\DivideDouble.cs" />
+    <Compile Include="Operations\Interfaces\IBaseBinaryOperationsBulider.cs" />
     <Compile Include="Operations\Interfaces\IBinaryOperation.cs" />
     <Compile Include="Operations\MultiplyDouble.cs" />
     <Compile Include="Operations\SubtractDouble.cs" />
