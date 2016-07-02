@@ -48,6 +48,7 @@
     <Compile Include="Operations\Interfaces\IBaseBinaryOperationsBulider.cs" />
     <Compile Include="Operations\Interfaces\IBinaryOperation.cs" />
     <Compile Include="Operations\MultiplyDouble.cs" />
+    <Compile Include="Operations\BaseBinaryOperationsPriority.cs" />
     <Compile Include="Operations\SubtractDouble.cs" />
     <Compile Include="Operations\SummarizeDouble.cs" />
     <Compile Include="Program.cs" />
