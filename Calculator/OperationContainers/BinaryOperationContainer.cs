@@ -1,6 +1,6 @@
 ﻿using Calculator.Operations;
 
-namespace Calculator.Containers
+namespace Calculator.OperationContainers
 {
     public class BinaryOperationContainer<T> : IBinaryOperationContainer<T> where T : struct 
     {

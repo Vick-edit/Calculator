@@ -1,6 +1,6 @@
 ﻿using Calculator.Operations;
 
-namespace Calculator.Containers
+namespace Calculator.OperationContainers
 {
     public interface IBinaryOperationContainer<T> where T: struct 
     {

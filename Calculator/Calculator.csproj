@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OperationContainers\IBinaryOperationContainer.cs" />
+    <Compile Include="OperationContainers\Interfaces\IBinaryOperationContainer.cs" />
     <Compile Include="OperationContainers\BinaryOperationContainer.cs" />
     <Compile Include="Operations\BaseBinaryOperationsFactoryDouble.cs" />
     <Compile Include="Operations\DivideDouble.cs" />
