@@ -1,6 +1,6 @@
 ﻿namespace Calculator.Operations
 {
-    public enum BaseBinaryOperationsPriority
+    public enum OperationsPriority
     {
         Multiplication = 1,
         Division = 2,
