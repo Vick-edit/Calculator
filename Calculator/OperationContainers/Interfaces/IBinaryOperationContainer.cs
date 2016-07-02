@@ -4,7 +4,7 @@ namespace Calculator.OperationContainers
 {
     public interface IBinaryOperationContainer<T> where T: struct 
     {
-        string[] Literals { get; }
+        string[] Symbols { get; }
         IBinaryOperation<T> Operation { get; } 
     }
 }
