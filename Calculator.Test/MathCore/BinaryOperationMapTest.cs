@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace Calculator.Test.MathCore
 {
     [TestFixture]
-    public class BinaryPartsOfMathTest
+    public class BinaryOperationMapTest
     {
         [Test]
         public void GetOperationContainersSortedByPriority_EveryContainerHasUniqueSymbol()
@@ -25,7 +25,7 @@ namespace Calculator.Test.MathCore
             Mock.Get(builder).Setup(y => y.BuildContainer(It.IsAny<string>(), null))
                 .Returns<string, object>((symbol, obj) => new BinaryOperationContainer<double>(symbol, null));
 
-            var binaryPartsofMath = new BinaryPartsOfMath<double>(factory, builder);
+            var binaryPartsofMath = new BinaryOperationMap<double>(factory, builder);
 
 
             //act

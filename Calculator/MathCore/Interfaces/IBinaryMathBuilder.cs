@@ -2,6 +2,6 @@
 {
     public interface IBinaryMathBuilder<T> where T : struct
     {
-        IBinaryPartsOfMath<T> GetBinaryMathCore();
+        IBinaryOperationMap<T> GetBinaryMathCore();
     }
 }

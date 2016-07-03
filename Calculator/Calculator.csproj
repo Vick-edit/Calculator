@@ -45,9 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MathCore\BinaryMathInDoubleBuilder.cs" />
-    <Compile Include="MathCore\BinaryPartsOfMath.cs" />
+    <Compile Include="MathCore\BinaryOperationMap.cs" />
     <Compile Include="MathCore\Interfaces\IBinaryMathBuilder.cs" />
-    <Compile Include="MathCore\Interfaces\IBinaryPartsOfMath.cs" />
+    <Compile Include="MathCore\Interfaces\IBinaryOperationMap.cs" />
     <Compile Include="OperationContainers\BinaryOperationContainerBuilder.cs" />
     <Compile Include="OperationContainers\Interfaces\IBinaryOperationContainer.cs" />
     <Compile Include="OperationContainers\BinaryOperationContainer.cs" />

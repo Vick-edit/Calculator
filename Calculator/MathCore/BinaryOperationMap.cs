@@ -6,7 +6,8 @@ using Calculator.Operations;
 
 namespace Calculator.MathCore
 {
-    public class BinaryPartsOfMath<T> : IBinaryPartsOfMath<T> where T : struct 
+    /// <summary> Хаб - класс, хранит мапинг приоритет операции - символ - сама операция </summary>
+    public class BinaryOperationMap<T> : IBinaryOperationMap<T> where T : struct 
     {
         private readonly IBaseBinaryOperationsFactory<T> _operationsfactory;
         private readonly IBinaryOperationContainerBuilder<T> _containerBuilder;
@@ -17,8 +18,7 @@ namespace Calculator.MathCore
         private readonly Dictionary<OperationsPriority, IBinaryOperationContainer<T>> _operationContainers;
 
 
-
-        public BinaryPartsOfMath(IBaseBinaryOperationsFactory<T> factory, IBinaryOperationContainerBuilder<T> containerBuilder)
+        public BinaryOperationMap(IBaseBinaryOperationsFactory<T> factory, IBinaryOperationContainerBuilder<T> containerBuilder)
         {
             _operationsfactory = factory;
             _containerBuilder = containerBuilder;
@@ -29,6 +29,7 @@ namespace Calculator.MathCore
         }
 
 
+        /// <summary> Словарь приоритет операции - символ </summary>
         private Dictionary<OperationsPriority, string> SymbolsMap()
         {
             var symbolsDictionary =
@@ -42,6 +43,7 @@ namespace Calculator.MathCore
             return symbolsDictionary;
         }
 
+        /// <summary> Словарь приоритет - сама операция </summary>
         private Dictionary<OperationsPriority, IBinaryOperation<T>> OperationsMap()
         {
             var operationsDictionary =
@@ -55,6 +57,7 @@ namespace Calculator.MathCore
             return operationsDictionary;
         }
 
+        /// <summary> Объединение словарей в один приоритет-символ-операция </summary>
         private Dictionary<OperationsPriority, IBinaryOperationContainer<T>> MakeContainersDictionary()
         {
             var containersDictionary = new Dictionary<OperationsPriority, IBinaryOperationContainer<T>>();
