@@ -57,7 +57,6 @@ namespace Calculator.Test.Parsers
 
         private static List<IBinaryOperationContainer<double>> BuildBinaryOperationContainers(Dictionary<string, Func<double, double, double>> operationsDinctionary)
         {
-            var anyDouble = It.IsAny<double>();
             var opertionsContainers = new List<IBinaryOperationContainer<double>>();
 
             //по словарю символ - операция создаём упорядоченный список контейнеров функций
@@ -68,7 +67,7 @@ namespace Calculator.Test.Parsers
 
                 var opertionMock = Mock.Of<IBinaryOperation<double>>();
                 Mock.Get(opertionMock)
-                    .Setup(x => x.Calculate(anyDouble, anyDouble))
+                    .Setup(x => x.Calculate(It.IsAny<double>(), It.IsAny<double>()))
                     .Returns((double a, double b) => func(a, b));
 
                 var opertionContainerMock = Mock.Of<IBinaryOperationContainer<double>>();
