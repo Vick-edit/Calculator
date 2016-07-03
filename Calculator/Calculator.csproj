@@ -43,20 +43,20 @@
   <ItemGroup>
     <Compile Include="MathCore\BinaryMathInDoubleBuilder.cs" />
     <Compile Include="MathCore\BinaryPartsOfMath.cs" />
-    <Compile Include="MathCore\IBinaryMathBuilder.cs" />
-    <Compile Include="MathCore\IBinaryPartsOfMath.cs" />
+    <Compile Include="MathCore\Interfaces\IBinaryMathBuilder.cs" />
+    <Compile Include="MathCore\Interfaces\IBinaryPartsOfMath.cs" />
     <Compile Include="OperationContainers\BinaryOperationContainerBuilder.cs" />
     <Compile Include="OperationContainers\Interfaces\IBinaryOperationContainer.cs" />
     <Compile Include="OperationContainers\BinaryOperationContainer.cs" />
     <Compile Include="OperationContainers\Interfaces\IBinaryOperationContainerBuilder.cs" />
-    <Compile Include="Operations\BaseBinaryOperationsFactoryDouble.cs" />
-    <Compile Include="Operations\DivideDouble.cs" />
-    <Compile Include="Operations\Interfaces\IBaseBinaryOperationsBulider.cs" />
-    <Compile Include="Operations\Interfaces\IBinaryOperation.cs" />
-    <Compile Include="Operations\MultiplyDouble.cs" />
-    <Compile Include="Operations\OperationsPriority.cs" />
-    <Compile Include="Operations\SubtractDouble.cs" />
-    <Compile Include="Operations\SummarizeDouble.cs" />
+    <Compile Include="Operation\BaseBinaryOperationsFactoryDouble.cs" />
+    <Compile Include="Operation\DivideDouble.cs" />
+    <Compile Include="Operation\Interfaces\IBaseBinaryOperationsBulider.cs" />
+    <Compile Include="Operation\Interfaces\IBinaryOperation.cs" />
+    <Compile Include="Operation\MultiplyDouble.cs" />
+    <Compile Include="Operation\OperationsPriority.cs" />
+    <Compile Include="Operation\SubtractDouble.cs" />
+    <Compile Include="Operation\SummarizeDouble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
