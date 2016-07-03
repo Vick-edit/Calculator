@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MathCore\BinaryMathInDoubleBuilder.cs" />
     <Compile Include="MathCore\BinaryPartsOfMath.cs" />
+    <Compile Include="MathCore\IBinaryMathBuilder.cs" />
     <Compile Include="MathCore\IBinaryPartsOfMath.cs" />
     <Compile Include="OperationContainers\BinaryOperationContainerBuilder.cs" />
     <Compile Include="OperationContainers\Interfaces\IBinaryOperationContainer.cs" />
