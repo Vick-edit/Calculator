@@ -1,4 +1,5 @@
-﻿using Calculator.Parsers;
+﻿using System.Globalization;
+using Calculator.Parsers;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using Sprache;
@@ -21,7 +22,7 @@ namespace Calculator.Test.Parsers
         public void Number_ParseString_CorrectDouble(string expression)
         {
             //arrange
-            var controlValue = double.Parse(expression);
+            var controlValue = double.Parse(expression, CultureInfo.InvariantCulture);
 
             //act
             var result = Parser.Number.Parse(expression);
@@ -30,6 +31,8 @@ namespace Calculator.Test.Parsers
             Assert.That(result, Is.EqualTo(controlValue));
         }
 
+        [TestCase(" 83.9")]
+        [TestCase("83.9 ")]
         [TestCase("4.256d")]
         [TestCase("0.79.3")]
         [TestCase("--83.9")]
