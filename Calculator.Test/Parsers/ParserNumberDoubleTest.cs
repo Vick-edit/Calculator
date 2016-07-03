@@ -9,7 +9,7 @@ namespace Calculator.Test.Parsers
     [TestFixture]
     public class ParserNumberDoubleTest
     {
-        protected ParserNumberDouble Parser { get; set; }
+        public ParserNumberDouble Parser { get; private set; }
 
         public ParserNumberDoubleTest()
         {

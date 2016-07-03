@@ -75,6 +75,7 @@
     <Compile Include="Operations\MultiplyDoubleTest.cs" />
     <Compile Include="Operations\SubtractDoubleTest.cs" />
     <Compile Include="Operations\SummarizeDoubleTest.cs" />
+    <Compile Include="Parsers\ParserBinaryOperationsTest.cs" />
     <Compile Include="Parsers\ParserNumberDoubleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
