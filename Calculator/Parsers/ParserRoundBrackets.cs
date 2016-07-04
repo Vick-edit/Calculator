@@ -10,11 +10,11 @@ namespace Calculator.Parsers
         {
             get
             {
-                return 
+                return
                     from leftBracket in Parse.Char('(')
-					from expr in OrderedExpressions
-					from rightBracket in Parse.Char(')')
-					select expr;
+                    from expr in OrderedExpressions
+                    from rightBracket in Parse.Char(')')
+                    select expr;
             }
         }
 
