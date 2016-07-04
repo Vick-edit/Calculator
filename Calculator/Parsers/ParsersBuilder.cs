@@ -4,7 +4,7 @@ namespace Calculator.Parsers
 {
     public class ParsersBuilder
     {
-        IParserRoundBrackets<double> ParserForDoubleBinariesAndBrakets()
+        public IParserRoundBrackets<double> ParserForDoubleBinariesAndBrakets()
         {
             var binarysMap = new BinaryMathInDoubleBuilder().GetBinaryMathCore();
             var numberParser = new ParserNumberDouble();
