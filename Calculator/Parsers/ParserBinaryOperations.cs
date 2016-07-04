@@ -12,10 +12,10 @@ namespace Calculator.Parsers
         private readonly IBinaryOperationMap<T> _binaryOperationsMapper;
 
         private readonly Parser<Expression> _operand;
-        public Parser<Expression> Operand { get { return _operand; } }
+        public virtual Parser<Expression> Operand { get { return _operand; } }
 
         private readonly Parser<Expression> _orderedExpressions;
-        public Parser<Expression> OrderedExpressions { get{ return _orderedExpressions;} }
+        public Parser<Expression> OrderedExpressions { get { return _orderedExpressions; } }
 
         private Parser<LambdaExpression> Lambda
         {

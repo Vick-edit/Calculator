@@ -12,13 +12,13 @@ namespace Calculator.Test.Parsers
     [TestFixture]
     public class ParserBinaryOperationsTest
     {
-        private readonly ParserNumberDouble _numberParser;
+        protected readonly ParserNumberDouble NumberParser;
 
 
         public ParserBinaryOperationsTest()
         {
             var numberTest = new ParserNumberDoubleTest();
-            _numberParser = numberTest.Parser;
+            NumberParser = numberTest.Parser;
         }
 
 
@@ -43,8 +43,8 @@ namespace Calculator.Test.Parsers
             Mock.Get(binaryMapper)
                 .Setup(x => x.OrderedOperationContainersByPriority())
                 .Returns(opertionsContainers.ToArray);
-           
-           var parser = new ParserBinaryOperations<double>(_numberParser, binaryMapper);
+
+            var parser = BuildParser(NumberParser, binaryMapper);
 
 
             //act
@@ -55,7 +55,12 @@ namespace Calculator.Test.Parsers
         }
 
 
-        private static List<IBinaryOperationContainer<double>> BuildBinaryOperationContainers(Dictionary<string, Func<double, double, double>> operationsDinctionary)
+        protected virtual IParserBinaryOperations<double> BuildParser(IParserNumber<double> numberParser, IBinaryOperationMap<double> binaryMapper)
+        {
+            return new ParserBinaryOperations<double>(numberParser, binaryMapper);
+        }
+
+        protected List<IBinaryOperationContainer<double>> BuildBinaryOperationContainers(Dictionary<string, Func<double, double, double>> operationsDinctionary)
         {
             var opertionsContainers = new List<IBinaryOperationContainer<double>>();
 

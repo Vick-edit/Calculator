@@ -62,8 +62,10 @@
     <Compile Include="Operation\SummarizeDouble.cs" />
     <Compile Include="Parsers\Interfaces\IParserBinaryOperations.cs" />
     <Compile Include="Parsers\Interfaces\IParserNumber.cs" />
+    <Compile Include="Parsers\Interfaces\IParserRoundBrackets.cs" />
     <Compile Include="Parsers\ParserBinaryOperations.cs" />
     <Compile Include="Parsers\ParserNumberDouble.cs" />
+    <Compile Include="Parsers\ParserRoundBrackets.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
