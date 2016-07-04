@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sprache">
+      <HintPath>..\packages\Sprache.2.0.0.52\lib\portable-net4+netcore45+win8+wp8+sl5+MonoAndroid+Xamarin.iOS10+MonoTouch\Sprache.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,11 +60,14 @@
     <Compile Include="Operation\OperationsPriority.cs" />
     <Compile Include="Operation\SubtractDouble.cs" />
     <Compile Include="Operation\SummarizeDouble.cs" />
+    <Compile Include="Parsers\Interfaces\IParserNumber.cs" />
+    <Compile Include="Parsers\ParserNumberDouble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
