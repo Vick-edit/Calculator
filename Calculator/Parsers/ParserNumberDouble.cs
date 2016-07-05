@@ -18,7 +18,7 @@ namespace Calculator.Parsers
                 return
                     from dot in Parse.Char('.')
                     from fractionNumbers in Parse.Number
-                    from end in Parse.Not(Parse.AnyChar)
+                    from end in Parse.Not(Parse.Letter)
                     select dot + fractionNumbers;
             }
         }
