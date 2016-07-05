@@ -12,7 +12,7 @@ namespace Calculator.Test.MathCore
     public class BinaryOperationMapTest
     {
         [Test]
-        public void GetOperationContainersSortedByPriority_EveryContainerHasUniqueSymbol()
+        public void GetOperationContainersSortedByPriority_GetContainersList_EveryContainerHasUniqueSymbol()
         {
             //arrange
             var factory = Mock.Of<IBaseBinaryOperationsFactory<double>>();

@@ -7,7 +7,7 @@ namespace Calculator.Test.MathCore
     public class BinaryMathInDoubleBuilderTest
     {
         [Test]
-        public void GetBinaryMathCore_ReturnNotNull()
+        public void GetBinaryMathCore_GetObject_ReturnNotNull()
         {
             //arrange
             var binaryMathInDoubleBuilder = new BinaryMathInDoubleBuilder();
