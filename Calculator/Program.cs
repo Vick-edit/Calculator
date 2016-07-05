@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,9 +45,10 @@ namespace Calculator
             Console.Write("Введите выражение: ");
             var input = Console.ReadLine();
             var result = parser.ParsString(input);
+            var message = string.Format(CultureInfo.InvariantCulture, "Результат вычисления: {0}", result);
 
-            Console.WriteLine("Результат вычисления: " + result);
-            Console.ReadKey();
+            Console.WriteLine(message);
+            Console.ReadKey(true);
             Console.WriteLine();
         }
 
