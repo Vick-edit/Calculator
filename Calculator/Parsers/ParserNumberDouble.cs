@@ -63,7 +63,9 @@ namespace Calculator.Parsers
 
         public double ParsString(string expresion)
         {
-            throw new NotImplementedException();
+            var lambdaByParser = Number.End();
+            var result = lambdaByParser.Parse(expresion);
+            return result;
         }
     }
 }
