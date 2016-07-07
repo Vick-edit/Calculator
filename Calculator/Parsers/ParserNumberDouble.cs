@@ -60,5 +60,10 @@ namespace Calculator.Parsers
                     select double.Parse(num, CultureInfo.InvariantCulture);
             }
         }
+
+        public double ParsString(string expresion)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

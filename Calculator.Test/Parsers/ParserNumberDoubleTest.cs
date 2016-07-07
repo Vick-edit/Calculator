@@ -25,7 +25,7 @@ namespace Calculator.Test.Parsers
             var controlValue = double.Parse(expression, CultureInfo.InvariantCulture);
 
             //act
-            var result = Parser.Number.Parse(expression);
+            var result = Parser.ParsString(expression);
 
             //assert
             Assert.That(result, Is.EqualTo(controlValue));
@@ -39,7 +39,7 @@ namespace Calculator.Test.Parsers
         public void Number_ParseIncorrectString_ExceptionRaised(string expression)
         {
             //act
-            TestDelegate result = () => Parser.Number.Parse(expression);
+            TestDelegate result = () => Parser.ParsString(expression);
 
             //assert
             Assert.Throws<ParseException>(result);
