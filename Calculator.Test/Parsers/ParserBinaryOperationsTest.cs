@@ -55,7 +55,7 @@ namespace Calculator.Test.Parsers
         }
 
 
-        protected virtual IParserBinaryOperations<double> BuildParser(IParserNumber<double> numberParser, IBinaryOperationMap<double> binaryMapper)
+        protected virtual IParser<double> BuildParser(IParserNumber<double> numberParser, IBinaryOperationMap<double> binaryMapper)
         {
             return new ParserBinaryOperations<double>(numberParser, binaryMapper);
         }

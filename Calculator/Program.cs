@@ -40,7 +40,7 @@ namespace Calculator
             }
         }
 
-        private static void ParseInput(IParserRoundBrackets<double> parser)
+        private static void ParseInput(IParser<double> parser)
         {
             Console.Write("Введите выражение: ");
             var input = Console.ReadLine();

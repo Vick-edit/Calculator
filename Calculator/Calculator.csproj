@@ -60,6 +60,7 @@
     <Compile Include="Operation\OperationsPriority.cs" />
     <Compile Include="Operation\SubtractDouble.cs" />
     <Compile Include="Operation\SummarizeDouble.cs" />
+    <Compile Include="Parsers\Interfaces\IParser.cs" />
     <Compile Include="Parsers\Interfaces\IParserBinaryOperations.cs" />
     <Compile Include="Parsers\Interfaces\IParserNumber.cs" />
     <Compile Include="Parsers\Interfaces\IParserRoundBrackets.cs" />

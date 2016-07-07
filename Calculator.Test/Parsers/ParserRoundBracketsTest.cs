@@ -43,7 +43,7 @@ namespace Calculator.Test.Parsers
             Assert.That(result.Equals(controlResult));
         }
 
-        protected override IParserBinaryOperations<double> BuildParser(IParserNumber<double> numberParser, IBinaryOperationMap<double> binaryMapper)
+        protected override IParser<double> BuildParser(IParserNumber<double> numberParser, IBinaryOperationMap<double> binaryMapper)
         {
             return new ParserRoundBrackets<double>(numberParser, binaryMapper);
         }

@@ -3,12 +3,10 @@ using Sprache;
 
 namespace Calculator.Parsers
 {
-    public interface IParserBinaryOperations<T> where T : struct
+    public interface IParserBinaryOperations<T> : IParser<T> where T : struct
     {
         Parser<Expression> Operand { get; }
 
         Parser<Expression> OrderedExpressions { get; }
-
-        T ParsString(string expresion);
     }
 }
